@@ -1,0 +1,12 @@
+version: 0.1
+python: 3.6
+entrypoint: python runway_model.py
+cuda: 9.2
+framework: tensorflow
+spec:
+    cpu: True
+    gpu: True
+build_steps:
+    - pip install -r requirements.txt
+    - if_gpu: echo "Building in a GPU environment..."
+    - if_cpu: echo "Building in a CPU only environment..."
