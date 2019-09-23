@@ -4,16 +4,15 @@ import runway
 from runway.data_types import file, array, text
 
 char_type = array(item_type=text)
-ocr = CnOcr()
 
-@runway.setup
+@runway.setup()
 def setup():
+    ocr = CnOcr()
     return ocr
 
-@runway.command('classify', inputs={ 'image': file() }, outputs={ 'chars': array(item_type=char_type) })
+@runway.command(name='classify', inputs={ 'image': file() }, outputs={ 'chars': array(item_type=char_type) })
 def classify(model, input):
-    img = input['image']
-    res = ocr.ocr(img)
+    res = model.ocr(input['image'])
     return { 'chars': res }
 
 if __name__ == '__main__':
