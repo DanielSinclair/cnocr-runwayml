@@ -6,7 +6,10 @@ framework: tensorflow
 spec:
     cpu: True
     gpu: True
+files:
+  ignore:
+    - ~/.cnocr
 build_steps:
-    - pip install -r requirements.txt
+    - pip install runway-python cnocr
     - if_gpu: echo "Building in a GPU environment..."
     - if_cpu: echo "Building in a CPU only environment..."

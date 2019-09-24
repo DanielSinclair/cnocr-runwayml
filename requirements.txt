@@ -1,3 +1,0 @@
-runway-python
-cnocr
-Pillow==6.0.0

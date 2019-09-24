@@ -1,19 +1,16 @@
-from PIL import Image
-from cnocr import CnOcr
 import runway
-from runway.data_types import file, array, text
+from cnocr import CnOcr
 
-char_type = array(item_type=text)
+@runway.setup(options={"network_size":category(choices=[64, 128, 256, 512])
+def setup(opts):
+    model = CnOcr()
+    return model
 
-@runway.setup()
-def setup():
-    ocr = CnOcr()
-    return ocr
-
-@runway.command(name='classify', inputs={ 'image': file() }, outputs={ 'chars': array(item_type=char_type) })
-def classify(model, input):
-    res = model.ocr(input['image'])
-    return { 'chars': res }
+@runway.command('classify', inputs={'image':runway.file(description='File path')}, outputs={'text':runway.text(description='Text')})
+def classify(model, inputs):
+    res = model.ocr(inputs['image'])
+    print(res)
+    return {'text':res}
 
 if __name__ == '__main__':
-    runway.run()
+    runway.run(host='0.0.0.0', port=9000)
