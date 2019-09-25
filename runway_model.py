@@ -1,7 +1,7 @@
 import runway
 from cnocr import CnOcr
 
-@runway.setup(options={"network_size":category(choices=[64, 128, 256, 512])
+@runway.setup(options={"network_size":category(choices=[64, 128, 256, 512])})
 def setup(opts):
     model = CnOcr()
     return model
