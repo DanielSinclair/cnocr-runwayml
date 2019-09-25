@@ -6,7 +6,7 @@ def setup(opts):
     model = CnOcr()
     return model
 
-@runway.command('classify', inputs={'image':runway.file(description='File path')}, outputs={'text':runway.text(description='Text')})
+@runway.command('classify', inputs={'image': runway.image}, outputs={'image': runway.text})
 def classify(model, inputs):
     res = model.ocr(inputs['image'])
     print(res)
