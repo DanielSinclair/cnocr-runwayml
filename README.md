@@ -1,7 +1,7 @@
 # cnOCR Model for RunwayML
 Chinese Character OCR on MxNet
 
-[![RunwayML Badge](https://open-app.runwayml.com/gh-badge.svg)](https://open-app.runwayml.com/)
+[![RunwayML Badge](https://open-app.runwayml.com/gh-badge.svg)](https://open-app.runwayml.com/?model=DanielSinclair/cnOCR)
 
 ## Input
 input | type |
